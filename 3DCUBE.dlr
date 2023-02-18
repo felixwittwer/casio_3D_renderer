@@ -1,0 +1,13 @@
+[DLSimRunSpace]
+
+[Breakpoint]
+File=C:\Users\Felix\Desktop\3DCUBE\3DCUBE.c
+Line=63
+Flags=00001012
+Sublevel=1
+
+[Breakpoint]
+File=C:\Users\Felix\Desktop\3DCUBE\3DCUBE.c
+Line=63
+Flags=00001012
+Sublevel=2
