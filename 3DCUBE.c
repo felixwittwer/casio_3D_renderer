@@ -12,7 +12,7 @@
 #include <math.h>
 #include <mathf.h>
 
-void DrawCube(int x, int y, int heigth, int rotatex , int rotatey, int rotatez, int radius, float stretchx, float stretchy, int debug){
+void DrawCube(int x, int y, int heigth, int rotatez, int radius, float stretchx, float stretchy, int debug){
     int iteration = 0;
     float rad = 0;
     float radone = 0;
@@ -47,6 +47,41 @@ void DrawCube(int x, int y, int heigth, int rotatex , int rotatey, int rotatez, 
     // Bdisp_SetPoint_VRAM(stretchx*(radius*sin(rad))+x, stretchy*(radius*cos(rad))+y+10, 1);
 }
 
+void DrawPyramid(int x, int y, int heigth, int rotatez, int radius, float stretchx, float stretchy, int nr_sides,int debug){
+    int iteration = 0;
+    float rad = 0;
+    float radone = 0;
+    float radtwo = 0;
+
+    if(debug==1){
+        while(iteration<360){
+            Bdisp_SetPoint_VRAM(stretchx*(radius*sin(iteration))+x, stretchy*(radius*cos(iteration))+y, 1);
+            iteration = iteration + 1;
+        }
+    }
+
+     //draw vertical lines of pyramid
+    iteration = 0;
+    while(iteration<361){
+        rad = ((iteration+rotatez)/180.0)*3.141592;
+        Bdisp_DrawLineVRAM(x, y-heigth, stretchx*(radius*sin(rad))+x, stretchy*(radius*cos(rad))+y);
+        iteration = iteration + (360/nr_sides);
+    }
+
+    //conect vertical lines
+    iteration = 0;
+    while(iteration<361){
+        radone = ((iteration+rotatez)/180.0)*3.141592;
+        radtwo = (((iteration+(360/nr_sides))+rotatez)/180.0)*3.141592;
+        Bdisp_DrawLineVRAM(stretchx*(radius*sin(radone))+x, stretchy*(radius*cos(radone))+y, stretchx*(radius*sin(radtwo))+x, stretchy*(radius*cos(radtwo))+y);
+        iteration = iteration + (360/nr_sides);
+    }
+
+}
+
+// ToDO Prsim renderer
+
+
 //****************************************************************************
 //  AddIn_main (Sample program main function)
 //
@@ -77,7 +112,8 @@ int AddIn_main(int isAppli, unsigned short OptionNum)
         }else if(key==KEY_CTRL_LEFT){
             rotatez = rotatez - 10;
         }
-        DrawCube(60,20,sidelength,0,0,rotatez,sidelength,stretchx,stretchy,0);
+        DrawCube(30,20,sidelength,rotatez,sidelength,stretchx,stretchy,0);
+        DrawPyramid(95,40,30,rotatez,sidelength,stretchx,stretchy,5,0);
     }
 
     return 1;
