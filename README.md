@@ -1,5 +1,5 @@
 # casio_3D_renderer ![MainIcon](MainIcon.bmp)
-a Casio Add-In that renders a 3D cube which can be rotated
+a Casio Add-In that renders a 3D objects which can be rotated
 
 ## Installation
 
