@@ -23,3 +23,4 @@ Use arrow keys left and right to turn the cube.<br>
 
 ![Add-In](3DCUBE.bmp)
 ![Add-In](3DCUBE_PYR.bmp)
+![Add-In](3DCUBE_PYR_PRI.bmp)
