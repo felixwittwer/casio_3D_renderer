@@ -79,7 +79,38 @@ void DrawPyramid(int x, int y, int heigth, int rotatez, int radius, float stretc
 
 }
 
-// ToDO Prsim renderer
+void DrawPrism(int x, int y, int heigth, int rotatez, int radius, float stretchx, float stretchy, int nr_sides,int debug){
+    int iteration = 0;
+    float rad = 0;
+    float radone = 0;
+    float radtwo = 0;
+
+    if(debug==1){
+        while(iteration<360){
+            Bdisp_SetPoint_VRAM(stretchx*(radius*sin(iteration))+x, stretchy*(radius*cos(iteration))+y, 1);
+            iteration = iteration + 1;
+        }
+    }
+
+     //draw vertical lines of pyramid
+    iteration = 0;
+    while(iteration<361){
+        rad = ((iteration+rotatez)/180.0)*3.141592;
+        Bdisp_DrawLineVRAM(stretchx*(radius*sin(rad))+x, stretchy*(radius*cos(rad))+y, stretchx*(radius*sin(rad))+x, stretchy*(radius*cos(rad))+y-heigth);
+        iteration = iteration + (360/nr_sides);
+    }
+
+    //conect vertical lines
+    iteration = 0;
+    while(iteration<361){
+        radone = ((iteration+rotatez)/180.0)*3.141592;
+        radtwo = (((iteration+(360/nr_sides))+rotatez)/180.0)*3.141592;
+        Bdisp_DrawLineVRAM(stretchx*(radius*sin(radone))+x, stretchy*(radius*cos(radone))+y-heigth, stretchx*(radius*sin(radtwo))+x, stretchy*(radius*cos(radtwo))+y-heigth);
+        Bdisp_DrawLineVRAM(stretchx*(radius*sin(radone))+x, stretchy*(radius*cos(radone))+y, stretchx*(radius*sin(radtwo))+x, stretchy*(radius*cos(radtwo))+y);
+        iteration = iteration + (360/nr_sides);
+    }
+
+}
 
 
 //****************************************************************************
@@ -112,8 +143,9 @@ int AddIn_main(int isAppli, unsigned short OptionNum)
         }else if(key==KEY_CTRL_LEFT){
             rotatez = rotatez - 10;
         }
-        DrawCube(30,20,sidelength,rotatez,sidelength,stretchx,stretchy,0);
-        DrawPyramid(95,40,30,rotatez,sidelength,stretchx,stretchy,5,0);
+        DrawCube(25,10,sidelength,rotatez,sidelength,stretchx,stretchy,0);
+        DrawPyramid(60,55,30,rotatez,sidelength,stretchx,stretchy,4,0);
+        DrawPrism(100,35,25,rotatez,sidelength,stretchx,stretchy,7,0);
     }
 
     return 1;

@@ -17,8 +17,8 @@ Type=1
 Order=1
 Top=15
 Left=7800
-Height=4920
-Width=5700
+Height=4815
+Width=5745
 State=0
 Flags=00000001
 OptionA=15
@@ -26,7 +26,7 @@ OptionB=15
 
 [_3]
 Type=6
-Order=3
+Order=4
 Top=4740
 Left=7800
 Height=6390
@@ -81,7 +81,7 @@ OptionA=0
 
 [_8]
 Type=17
-Order=5
+Order=2
 Top=15
 Left=-15
 Height=11115
@@ -92,7 +92,7 @@ OptionA=0
 
 [_9]
 Type=15
-Order=2
+Order=3
 Top=11115
 Left=30
 Height=8970
@@ -103,7 +103,7 @@ OptionA=0
 
 [_32]
 Type=16
-Order=4
+Order=5
 Top=15
 Left=13485
 Height=19875
