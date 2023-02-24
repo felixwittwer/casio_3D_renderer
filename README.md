@@ -20,8 +20,8 @@ Press [MENU] as shown on the screen.<br>
 
 Open 3DCUBE by scrolling to the symbol and pressing [EXE].<br>
 Use arrow keys left and right to turn the cube.<br>
-[<-] turn objects clockwise
-[->] turn objects counterclockwise
+[<-] turn objects clockwise<br>
+[->] turn objects counterclockwise<br>
 
 ![Add-In](3DCUBE.bmp)
 ![Add-In](3DCUBE_PYR.bmp)
